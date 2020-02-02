@@ -1,0 +1,197 @@
+[
+  {
+    "pinyin": "lishui",
+    "name": "丽水",
+    "provinceName": "丽水市",
+    "provinceShortName": "丽水",
+    "confirmedCount": 14,
+    "suspectedCount": 0,
+    "curedCount": 1,
+    "deadCount": 0,
+    "comment": "",
+    "cities": [
+      
+      {
+        "cityName": "遂昌",
+        "confirmedCount": 0,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "遂昌县"
+      },
+      {
+        "cityName": "龙泉",
+        "confirmedCount": 0,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "龙泉市"
+      },
+      {
+        "cityName": "庆元",
+        "confirmedCount": 6,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "庆元县"
+      },
+      {
+        "cityName": "云和",
+        "confirmedCount": 0,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "云和县"
+      },
+      {
+        "cityName": "景宁",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "景宁畲族自治县"
+      },
+      {
+        "cityName": "松阳",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "松阳县"
+      },
+      {
+        "cityName": "莲都区",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "莲都区"
+      },
+      {
+        "cityName": "缙云",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": 1,
+        "deadCount": 0,
+        "fullCityName": "缙云县"
+      },
+      {
+        "cityName": "青田",
+        "confirmedCount": 4,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0,
+        "fullCityName": "青田县"
+      }
+    ]
+  },
+  {
+    "pinyin": "ningbo",
+    "name": "宁波",
+    "provinceName": "宁波市",
+    "provinceShortName": "宁波",
+    "confirmedCount": 55,
+    "suspectedCount": 0,
+    "curedCount": 1,
+    "deadCount": 0,
+    "comment": "",
+    "cities": [
+      {
+        "cityName": "海曙",
+        "confirmedCount": 18,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "海曙区"
+      },
+      {
+        "cityName": "镇海",
+        "confirmedCount": 3,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "镇海区"
+      },
+      {
+        "cityName": "北仑",
+        "confirmedCount": 2,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "北仑区"
+      },
+      {
+        "cityName": "鄞州",
+        "confirmedCount": 8,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "鄞州区"
+      },
+      {
+        "cityName": "奉化",
+        "confirmedCount": 3,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "奉化区"
+      },
+      {
+        "cityName": "宁海",
+        "confirmedCount": 8,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "宁海县"
+      },
+      {
+        "cityName": "象山",
+        "confirmedCount": 2,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "象山县"
+      },
+      {
+        "cityName": "余姚",
+        "confirmedCount": 3,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "余姚市"
+      },
+      {
+        "cityName": "慈溪",
+        "confirmedCount": 5,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "慈溪市"
+      },
+      {
+        "cityName": "高新",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "高新区"
+      },
+      {
+        "cityName": "东钱湖",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "东钱湖"
+      },
+      {
+        "cityName": "杭州湾",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "杭州湾新区"
+      }
+    ]
+  }
+]

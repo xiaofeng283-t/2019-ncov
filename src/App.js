@@ -5,7 +5,8 @@ import 'dayjs/locale/zh-cn'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
 import all from './data/overall'
-import provinces from './data/area'
+import _provinces from './data/area'
+import _provinces_2 from './data/area2'
 
 import Tag from './Tag'
 
@@ -13,6 +14,16 @@ import './App.css'
 import axios from 'axios'
 
 dayjs.extend(relativeTime)
+
+// 兼容区/县级
+var provinces;
+const p = window.location.pathname.slice(1)
+var area_array = ['lishui', 'ningbo']
+if(area_array.indexOf(p) > -1){
+  provinces = _provinces_2
+}else{
+  provinces = _provinces
+}
 
 const Map = React.lazy(() => import('./Map'))
 
@@ -100,6 +111,17 @@ function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCou
         <Tag number={curedCount}>
           治愈
         </Tag>
+ 
+        {/* <Tag number={0}>
+          密切接触
+        </Tag>
+        <Tag number={0}>
+          医学观察
+        </Tag>
+        <Tag number={0}>
+          解除医学观察
+        </Tag> */}
+        
       </div>
     </div>
   )
@@ -128,8 +150,8 @@ function Area ({ area, onChange }) {
           { x.name || x.cityName }
         </div>
         <div className="confirmed">{ x.confirmedCount }</div>
-        <div className="death">{ x.deadCount }</div>
-        <div className="cured">{ x.curedCount }</div>
+        <div className="death">{ x.deadCount || "-" }</div>
+        <div className="cured">{ x.curedCount || "-" }</div>
       </div>
     ))
   }
@@ -155,15 +177,29 @@ function Header ({ province }) {
         <br />
         疫情实时动态 · { province ? province.name : '省市地图' }
       </h1>
-      <i>By 山月 (数据来源于丁香园)</i>
+      <i>By 山月、Jervon (数据来源于丁香园、卫健委)</i>
     </header>
   )
 }
 
 function App () {
+
+  var _p = window.location.pathname.slice(1)
+  // 区/县级
+  if(!provincesByPinyin[_p]){
+    // alert("区/县级11");
+    // return false;
+    
+  }
+
+  console.log(useState(null))
   const [province, _setProvince] = useState(null)
   const setProvinceByUrl = () => {
     const p = window.location.pathname.slice(1)
+    // 区/县级
+    if(!provincesByPinyin[p]){
+      // alert("区/县级");
+    }
     _setProvince(p ? provincesByPinyin[p] : null)
   }
 
@@ -210,6 +246,7 @@ function App () {
         }
         </h2>
         <Suspense fallback={<div className="loading">地图正在加载中...</div>}>
+          
           <Map province={province} data={data} onClick={name => {
             const p = provincesByName[name]
             if (p) {
@@ -230,6 +267,8 @@ function App () {
       <Fallback />
     </div>
   );
+
+
 }
 
 export default App;

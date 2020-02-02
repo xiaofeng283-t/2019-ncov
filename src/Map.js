@@ -4,8 +4,24 @@ import ReactEcharts from 'echarts-for-react'
 import 'echarts/map/js/china.js'
 
 function Map ({ province, data, onClick }) {
+
+
+  console.log("province=")
+  console.log(province);
+
+  console.log("data=")
+  console.log(data);
+
+  console.log("onClick=")
+  console.log(onClick);
+
   if (province) {
     require(`echarts/map/js/province/${province.pinyin}`)
+
+    // require(`echarts/map/js/province/${province.pinyin}.js`)
+
+    // 区/县
+    // require(`./data/echarts3-geojson/china/city/zhejiang/lishui.js`)
   }
 
   const getOption = () => {
@@ -38,6 +54,7 @@ function Map ({ province, data, onClick }) {
         // "inverse": false,
         // "splitNumber": 5,
         orient: province ? 'horizontal' : 'vertical',
+        // showLabel: province ? false : true,
         showLabel: province ? false : true,
         text: ['高', '低'],
         itemWidth: 10,
