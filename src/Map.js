@@ -1,9 +1,12 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React, { useEffect, useState } from 'react'
+import ReactEcharts from 'echarts-for-react/lib/core'
+import echarts from 'echarts/lib/echarts'
 
-import 'echarts/map/js/china.js'
+import 'echarts/lib/chart/map'
+import 'echarts/lib/component/visualMap'
 
 function Map ({ province, data, onClick }) {
+// <<<<<<< HEAD
 
 
   console.log("province=")
@@ -15,14 +18,32 @@ function Map ({ province, data, onClick }) {
   console.log("onClick=")
   console.log(onClick);
 
-  if (province) {
-    require(`echarts/map/js/province/${province.pinyin}`)
+  // if (province) {
+  //   require(`echarts/map/js/province/${province.pinyin}`)
 
-    // require(`echarts/map/js/province/${province.pinyin}.js`)
+  //   // require(`echarts/map/js/province/${province.pinyin}.js`)
 
-    // 区/县
-    // require(`./data/echarts3-geojson/china/city/zhejiang/lishui.js`)
-  }
+  //   // 区/县
+  //   // require(`./data/echarts3-geojson/china/city/zhejiang/lishui.js`)
+  // }
+// =======
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+    if (province) {
+      import(`echarts/map/json/province/${province.pinyin}.json`).then(map => {
+        echarts.registerMap(province.pinyin, map.default)
+        setLoading(false)
+      })
+    } else {
+      import(`echarts/map/json/china.json`).then(map => {
+        echarts.registerMap('china', map.default)
+        setLoading(false)
+      })
+    }
+  }, [province])
+// >>>>>>> master
 
   const getOption = () => {
     return {
@@ -76,7 +97,7 @@ function Map ({ province, data, onClick }) {
           // margin: 8,
           fontSize: 6
         },
-        mapType: province ? province.name : 'china',
+        mapType: province ? province.pinyin : 'china',
         data,
         zoom: 1.2,
         roam: false,
@@ -92,13 +113,17 @@ function Map ({ province, data, onClick }) {
     }
   }
   return (
-    <ReactEcharts option={getOption()} lazyUpdate={true} onEvents={{
-      click (e) {
-        console.log("e=")
-        console.log(e)
-        onClick(e.name)
-      }
-    }} />
+    loading ? <div className="loading">地图正在加载中...</div> :
+    <ReactEcharts
+      echarts={echarts}
+      option={getOption()}
+      lazyUpdate={true}
+      onEvents={{
+        click (e) {
+          onClick(e.name)
+        }
+      }}
+    />
   )
 }
 

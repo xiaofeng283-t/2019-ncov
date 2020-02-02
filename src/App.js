@@ -177,12 +177,13 @@ function Area ({ area, onChange }) {
 function Header ({ province }) {
   return (
     <header>
+      <div className="bg"></div>
       <h1>
         <small>新型冠状病毒</small>
         <br />
         疫情实时动态 · { province ? province.name : '省市地图' }
       </h1>
-      <i>By 山月、Jervon (数据来源于丁香园、卫健委)</i>
+      <i>By 全栈成长之路、Jervon (数据来源于丁香园、卫健委)</i>
     </header>
   )
 }
