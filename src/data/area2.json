@@ -90,7 +90,7 @@
     "name": "宁波",
     "provinceName": "宁波市",
     "provinceShortName": "宁波",
-    "confirmedCount": 55,
+    "confirmedCount": 66,
     "suspectedCount": 0,
     "curedCount": 1,
     "deadCount": 0,
@@ -98,7 +98,7 @@
     "cities": [
       {
         "cityName": "海曙",
-        "confirmedCount": 18,
+        "confirmedCount": 25,
         "suspectedCount": 0,
         "curedCount": "",
         "deadCount": "",
@@ -122,7 +122,7 @@
       },
       {
         "cityName": "鄞州",
-        "confirmedCount": 8,
+        "confirmedCount": 10,
         "suspectedCount": 0,
         "curedCount": "",
         "deadCount": "",
@@ -162,7 +162,7 @@
       },
       {
         "cityName": "慈溪",
-        "confirmedCount": 5,
+        "confirmedCount": 7,
         "suspectedCount": 0,
         "curedCount": "",
         "deadCount": "",

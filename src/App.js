@@ -19,16 +19,13 @@ dayjs.extend(relativeTime)
 var provinces;
 var _p = window.location.pathname.slice(1)
 var _p_array = _p.split("/")
-console.log("_p_array=")
-console.log(_p_array)
-// var area_array = ['lishui', 'ningbo']
+var area_array = ['lishui', 'ningbo']
+var area_name_array = ['丽水', '宁波']
 if(_p_array.length > 1){
   provinces = _provinces_2
 }else{
   provinces = _provinces
 }
-console.log("provinces=")
-console.log(provinces)
 
 const Map = React.lazy(() => import('./Map'))
 
@@ -100,7 +97,8 @@ function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCou
       <h2>
         统计 {name ? `· ${name}` : false}
         <span className="due">
-          截止时间: {dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
+          {area_name_array.indexOf(name) > -1 ? "截止时间：2020年2月1日24时" : "更新时间：" + dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
+
         </span>
       </h2>
       <div className="row">
@@ -136,7 +134,7 @@ function Fallback () {
   return (
     <div className="fallback">
       <div>
-        代码仓库: <a href="https://github.com/shfshanyue/2019-ncov">shfshanyue/2019-ncov</a>
+        代码仓库: <a href="https://github.com/xiaofeng283-t/2019-ncov">xiaofeng283-t/2019-ncov</a>
       </div>
     </div>
   )
@@ -183,7 +181,8 @@ function Header ({ province }) {
         <br />
         疫情实时动态 · { province ? province.name : '省市地图' }
       </h1>
-      <i>By 全栈成长之路、Jervon (数据来源于丁香园、卫健委)</i>
+      <i>By 全栈成长之路、Jervon (数据来源于丁香园、卫健委)
+      <br/>区县级数据查看：<a href="/zhengjiang/ningbo" target="_parent">宁波<span>（点击直达）</span></a>、<a href="/zhengjiang/lishui">丽水</a></i>
     </header>
   )
 }
@@ -191,13 +190,7 @@ function Header ({ province }) {
 function App () {
   const [province, _setProvince] = useState(null)
   const setProvinceByUrl = () => {
-
     // 兼容区/县级
-    // var provinces;
-    // var _p = window.location.pathname.slice(1)
-    // var _p_array = _p.split("/")
-    console.log("_p_array=")
-    console.log(_p_array)
     var p;
     if(_p_array.length > 1){
       p = _p_array[1]

@@ -6,32 +6,18 @@ import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 
 function Map ({ province, data, onClick }) {
-// <<<<<<< HEAD
-
-
-  console.log("province=")
-  console.log(province);
-
-  console.log("data=")
-  console.log(data);
-
-  console.log("onClick=")
-  console.log(onClick);
-
-  // if (province) {
-  //   require(`echarts/map/js/province/${province.pinyin}`)
-
-  //   // require(`echarts/map/js/province/${province.pinyin}.js`)
-
-  //   // 区/县
-  //   // require(`./data/echarts3-geojson/china/city/zhejiang/lishui.js`)
-  // }
-// =======
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setLoading(true)
     if (province) {
+      // var _p = window.location.pathname.slice(1)
+      // var _p_array = _p.split("/")
+      // var json_file_dir = "echarts/map/json/province"
+      // if(_p_array.length > 1){
+      //   json_file_dir = "/Users/zengjianfeng/Documents/projects_data/2019-ncov/src/data/city/zhejiang"
+      // }
+
       import(`echarts/map/json/province/${province.pinyin}.json`).then(map => {
         echarts.registerMap(province.pinyin, map.default)
         setLoading(false)
@@ -43,7 +29,6 @@ function Map ({ province, data, onClick }) {
       })
     }
   }, [province])
-// >>>>>>> master
 
   const getOption = () => {
     return {
