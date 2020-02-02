@@ -17,13 +17,18 @@ dayjs.extend(relativeTime)
 
 // 兼容区/县级
 var provinces;
-const p = window.location.pathname.slice(1)
-var area_array = ['lishui', 'ningbo']
-if(area_array.indexOf(p) > -1){
+var _p = window.location.pathname.slice(1)
+var _p_array = _p.split("/")
+console.log("_p_array=")
+console.log(_p_array)
+// var area_array = ['lishui', 'ningbo']
+if(_p_array.length > 1){
   provinces = _provinces_2
 }else{
   provinces = _provinces
 }
+console.log("provinces=")
+console.log(provinces)
 
 const Map = React.lazy(() => import('./Map'))
 
@@ -183,23 +188,23 @@ function Header ({ province }) {
 }
 
 function App () {
-
-  var _p = window.location.pathname.slice(1)
-  // 区/县级
-  if(!provincesByPinyin[_p]){
-    // alert("区/县级11");
-    // return false;
-    
-  }
-
-  console.log(useState(null))
   const [province, _setProvince] = useState(null)
   const setProvinceByUrl = () => {
-    const p = window.location.pathname.slice(1)
-    // 区/县级
-    if(!provincesByPinyin[p]){
-      // alert("区/县级");
+
+    // 兼容区/县级
+    // var provinces;
+    // var _p = window.location.pathname.slice(1)
+    // var _p_array = _p.split("/")
+    console.log("_p_array=")
+    console.log(_p_array)
+    var p;
+    if(_p_array.length > 1){
+      p = _p_array[1]
+    }else{
+      p = _p
     }
+    console.log("p2=")
+    console.log(p)
     _setProvince(p ? provincesByPinyin[p] : null)
   }
 

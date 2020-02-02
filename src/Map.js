@@ -54,7 +54,6 @@ function Map ({ province, data, onClick }) {
         // "inverse": false,
         // "splitNumber": 5,
         orient: province ? 'horizontal' : 'vertical',
-        // showLabel: province ? false : true,
         showLabel: province ? false : true,
         text: ['高', '低'],
         itemWidth: 10,
@@ -95,6 +94,8 @@ function Map ({ province, data, onClick }) {
   return (
     <ReactEcharts option={getOption()} lazyUpdate={true} onEvents={{
       click (e) {
+        console.log("e=")
+        console.log(e)
         onClick(e.name)
       }
     }} />

@@ -71,6 +71,7 @@ async function request () {
     ])
   }).catch(e => {
     console.log('Retry')
+    console.log(e)
     if (times++ > 10) {
       throw e
     }
