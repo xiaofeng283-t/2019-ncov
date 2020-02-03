@@ -4,11 +4,13 @@
     "name": "丽水",
     "provinceName": "丽水市",
     "provinceShortName": "丽水",
-    "confirmedCount": 14,
+    "confirmedCount": 16,
     "suspectedCount": 0,
     "curedCount": 1,
     "deadCount": 0,
     "comment": "",
+    "deadline_time": "2020年2月2日24时",
+    "source": "丽水发布",
     "cities": [
       
       {
@@ -29,7 +31,7 @@
       },
       {
         "cityName": "庆元",
-        "confirmedCount": 6,
+        "confirmedCount": 7,
         "suspectedCount": 0,
         "curedCount": 0,
         "deadCount": 0,
@@ -77,7 +79,7 @@
       },
       {
         "cityName": "青田",
-        "confirmedCount": 4,
+        "confirmedCount": 5,
         "suspectedCount": 0,
         "curedCount": 0,
         "deadCount": 0,
@@ -90,19 +92,29 @@
     "name": "宁波",
     "provinceName": "宁波市",
     "provinceShortName": "宁波",
-    "confirmedCount": 66,
+    "confirmedCount": 75,
     "suspectedCount": 0,
     "curedCount": 1,
     "deadCount": 0,
     "comment": "",
+    "deadline_time": "2020年2月2日24时",
+    "source": "健康宁波",
     "cities": [
       {
         "cityName": "海曙",
-        "confirmedCount": 25,
+        "confirmedCount": 28,
         "suspectedCount": 0,
         "curedCount": "",
         "deadCount": "",
         "fullCityName": "海曙区"
+      },
+      {
+        "cityName": "江北",
+        "confirmedCount": 4,
+        "suspectedCount": 0,
+        "curedCount": "",
+        "deadCount": "",
+        "fullCityName": "江北区"
       },
       {
         "cityName": "镇海",
@@ -154,7 +166,7 @@
       },
       {
         "cityName": "余姚",
-        "confirmedCount": 3,
+        "confirmedCount": 5,
         "suspectedCount": 0,
         "curedCount": "",
         "deadCount": "",

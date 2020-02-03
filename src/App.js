@@ -91,13 +91,13 @@ function Summary () {
   )
 }
 
-function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCount, name }) {
+function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCount, seriousIncr, deadline_time, source, name }) {
   return (
     <div className="card">
       <h2>
         统计 {name ? `· ${name}` : false}
         <span className="due">
-          {area_name_array.indexOf(name) > -1 ? "截止时间：2020年2月1日24时" : "更新时间：" + dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
+          {area_name_array.indexOf(name) > -1 ? `截止时间：${deadline_time}，数据来源：${source}`  : "更新时间：" + dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
 
         </span>
       </h2>
@@ -107,6 +107,9 @@ function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCou
         </Tag>
         <Tag number={suspectedCount || '-'}>
           疑似
+        </Tag>
+        <Tag number={seriousIncr || '-'}>
+          重症
         </Tag>
         <Tag number={deadCount}>
           死亡
@@ -136,6 +139,7 @@ function Fallback () {
       <div>
         代码仓库: <a href="https://github.com/xiaofeng283-t/2019-ncov">xiaofeng283-t/2019-ncov</a>
       </div>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278597257'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278597257' type='text/javascript'%3E%3C/script%3E"));</script>
     </div>
   )
 }
@@ -182,7 +186,7 @@ function Header ({ province }) {
         疫情实时动态 · { province ? province.name : '省市地图' }
       </h1>
       <i>By 全栈成长之路、Jervon (数据来源于丁香园、卫健委)
-      <br/>区县级数据查看：<a href="/zhengjiang/ningbo" target="_parent">宁波<span>（点击直达）</span></a>、<a href="/zhengjiang/lishui">丽水</a></i>
+      <br/>区县级数据查看：<a href="/zhengjiang/ningbo" target="_parent">宁波（点击查看各区）</a>、<a href="/zhengjiang/lishui">丽水（点击查看各县）</a></i>
     </header>
   )
 }
@@ -243,6 +247,11 @@ function App () {
             onClick={() => setProvince(null)}
           >返回全国</small> : null
         }
+        {/* TODO 返回省级 */}
+        {/* {
+          area_array.indexOf(province.pinyin) > -1 ? "" : ""
+        } */}
+        
         </h2>
         <Suspense fallback={<div className="loading">地图正在加载中...</div>}>
           
