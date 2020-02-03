@@ -18,6 +18,9 @@ dayjs.extend(relativeTime)
 // 兼容区/县级
 var provinces;
 var _p = window.location.pathname.slice(1)
+console.log("_p=")
+console.log(_p)
+console.log(window.location.pathname)
 var _p_array = _p.split("/")
 var area_array = ['lishui', 'ningbo']
 var area_name_array = ['丽水', '宁波']
@@ -26,6 +29,8 @@ if(_p_array.length > 1){
 }else{
   provinces = _provinces
 }
+console.log("provinces=")
+console.log(provinces)
 
 const Map = React.lazy(() => import('./Map'))
 
@@ -186,7 +191,7 @@ function Header ({ province }) {
         疫情实时动态 · { province ? province.name : '省市地图' }
       </h1>
       <i>By 全栈成长之路、Jervon (数据来源于丁香园、卫健委)
-      <br/>区县级数据查看：<a href="/zhengjiang/ningbo" target="_parent">宁波（点击查看各区）</a>、<a href="/zhengjiang/lishui">丽水（点击查看各县）</a></i>
+      <br/>区县级数据查看：<a href="/zhejiang/ningbo" target="_parent">宁波（点击查看各区）</a>、<a href="/zhejiang/lishui">丽水（点击查看各县）</a></i>
     </header>
   )
 }
@@ -225,6 +230,12 @@ function App () {
     window.history.pushState(null, null, p ? p.pinyin : '/')
   }
 
+  const setProvince_2 = (p) => {
+    _setProvince(p)
+    window.history.pushState(null, null, p ? p.pinyin : '/')
+    window.location.pathname = "/"
+  }
+
   const data = !province ? provinces.map(p => ({
     name: p.provinceShortName,
     value: p.confirmedCount
@@ -243,10 +254,26 @@ function App () {
       <div className="card">
         <h2>疫情地图 { province ? `· ${province.name}` : false }
         {
-          province ? <small
+          province && (area_array.indexOf(province.pinyin) == -1) ? <small
             onClick={() => setProvince(null)}
           >返回全国</small> : null
         }
+
+          {
+          province && (area_array.indexOf(province.pinyin) > -1) ? <small
+            onClick={() => setProvince_2(null)}
+          >返回全国</small> : null
+        }
+
+
+        {/* {
+          province && (area_array.indexOf(province.pinyin) > -1) ? <small
+            onClick={() => setProvince_2(null)}
+          >返回全国</small> : null
+        } */}
+
+        
+
         {/* TODO 返回省级 */}
         {/* {
           area_array.indexOf(province.pinyin) > -1 ? "" : ""
